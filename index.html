@@ -31,23 +31,16 @@
             --radius: 12px;
             --radius-lg: 18px;
             --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
             --font-body: 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
             --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-body);
-            background:
-                radial-gradient(ellipse at 10% 5%, rgba(13, 59, 57, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 90% 92%, rgba(245, 158, 11, 0.07) 0%, transparent 60%),
-                #edf1f5;
+            background: radial-gradient(ellipse at 10% 5%, rgba(13, 59, 57, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 92%, rgba(245, 158, 11, 0.07) 0%, transparent 60%), #edf1f5;
             background-attachment: fixed;
             min-height: 100vh;
             padding: 20px 12px 40px;
@@ -56,15 +49,9 @@
             line-height: 1.55;
             color: var(--text);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        .cv-wrapper {
-            max-width: 860px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
+        .cv-wrapper { max-width: 860px; width: 100%; position: relative; z-index: 1; }
 
         .cv-container {
             background-color: var(--card-bg);
@@ -73,172 +60,71 @@
             overflow: hidden;
             position: relative;
         }
-
         .cv-container::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 50%, var(--accent) 100%);
             z-index: 10;
         }
 
-        /* ============ HEADER ============ */
+        /* Header */
         .cv-header {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 16px;
+            display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
             padding: 18px 20px;
             background: linear-gradient(145deg, #0a2826 0%, #0d3b39 30%, #0f4e4b 70%, #0f766e 100%);
-            color: #fff;
-            position: relative;
-            overflow: hidden;
+            color: #fff; position: relative; overflow: hidden;
         }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 0;
-        }
-
+        .header-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
         .header-icon-block {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
+            width: 42px; height: 42px; border-radius: var(--radius-sm);
+            background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
         }
-
         .header-name-info h1 {
-            font-size: 20px;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #fff;
-            cursor: pointer;
-            padding: 2px 4px;
-            border-radius: 4px;
+            font-size: 20px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 800;
+            line-height: 1.1; color: #fff; cursor: pointer; padding: 2px 4px; border-radius: 4px;
         }
-        .header-name-info h1[contenteditable="true"]:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
+        .header-name-info h1[contenteditable="true"]:hover { background: rgba(255,255,255,0.1); }
         .header-name-info .header-subtitle {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--accent);
-            font-weight: 600;
-            cursor: pointer;
-            padding: 2px 4px;
-            border-radius: 4px;
+            font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent);
+            font-weight: 600; cursor: pointer; padding: 2px 4px; border-radius: 4px;
         }
-        .header-name-info .header-subtitle[contenteditable="true"]:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .header-contact-table {
-            border-collapse: collapse;
-            font-size: 11px;
-        }
-        .header-contact-table td {
-            padding: 1px 0;
-        }
-        .header-contact-table td.ic {
-            width: 18px;
-            font-size: 12px;
-        }
-        .header-contact-table td.val {
-            font-weight: 500;
-            color: #fff;
-            padding-left: 4px;
-            cursor: pointer;
-        }
-
-        .header-actions-area {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        .header-name-info .header-subtitle[contenteditable="true"]:hover { background: rgba(255,255,255,0.1); }
+        .header-contact-table { border-collapse: collapse; font-size: 11px; }
+        .header-contact-table td { padding: 1px 0; }
+        .header-contact-table td.ic { width: 18px; font-size: 12px; }
+        .header-contact-table td.val { font-weight: 500; color: #fff; padding-left: 4px; cursor: pointer; }
+        .header-actions-area { display: flex; flex-direction: column; gap: 6px; }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-            cursor: pointer;
-            border: none;
-            transition: all var(--transition);
-            white-space: nowrap;
-            font-family: var(--font-body);
-            min-height: 36px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 8px 14px; border-radius: 20px; font-size: 11px; font-weight: 600;
+            letter-spacing: 0.4px; cursor: pointer; border: none; transition: all var(--transition);
+            white-space: nowrap; font-family: var(--font-body); min-height: 36px;
         }
-        .btn:active {
-            transform: scale(0.96);
-        }
-
+        .btn:active { transform: scale(0.96); }
         .btn-download {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: #1a1000;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
-            font-weight: 700;
+            color: #1a1000; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35); font-weight: 700;
         }
-        .btn-download.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
+        .btn-download.loading { pointer-events: none; opacity: 0.7; }
         .btn-download .spinner {
-            display: none;
-            width: 13px;
-            height: 13px;
-            border: 2px solid rgba(26, 16, 0, 0.3);
-            border-top-color: #1a1000;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+            display: none; width: 13px; height: 13px;
+            border: 2px solid rgba(26,16,0,0.3); border-top-color: #1a1000;
+            border-radius: 50%; animation: spin 0.7s linear infinite;
         }
-        .btn-download.loading .spinner {
-            display: inline-block;
-        }
-        .btn-download.loading .btn-icon-text {
-            display: none;
-        }
-
+        .btn-download.loading .spinner { display: inline-block; }
+        .btn-download.loading .btn-icon-text { display: none; }
         .btn-upload-sm {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1.5px dashed rgba(255, 255, 255, 0.35);
-            font-size: 10px;
+            background: rgba(255,255,255,0.1); color: #fff;
+            border: 1.5px dashed rgba(255,255,255,0.35); font-size: 10px;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ============ EDITABLE FIELDS ============ */
+        /* Editable fields */
         [contenteditable="true"] {
-            outline: none;
-            border-radius: 4px;
-            padding: 2px 4px;
-            transition: all var(--transition);
-            cursor: text;
-            min-height: 1.2em;
+            outline: none; border-radius: 4px; padding: 2px 4px;
+            transition: all var(--transition); cursor: text; min-height: 1.2em;
         }
         [contenteditable="true"]:hover {
             background: rgba(245, 158, 11, 0.12);
@@ -248,557 +134,162 @@
             background: rgba(245, 158, 11, 0.2);
             box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4);
         }
-
-        .edit-hint {
-            font-size: 8px;
-            color: rgba(255, 255, 255, 0.6);
-            text-align: center;
-            margin-top: 3px;
-        }
+        .edit-hint { font-size: 8px; color: rgba(255,255,255,0.6); text-align: center; margin-top: 3px; }
         .global-edit-hint {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            z-index: 998;
-            backdrop-filter: blur(4px);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.5s;
+            position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8);
+            color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 11px;
+            z-index: 998; backdrop-filter: blur(4px); pointer-events: none; opacity: 0; transition: opacity 0.5s;
         }
-        .global-edit-hint.show {
-            opacity: 1;
-        }
+        .global-edit-hint.show { opacity: 1; }
 
-        /* ============ SIDEBAR + MAIN LAYOUT ============ */
-        .cv-body {
-            display: grid;
-            grid-template-columns: 210px 1fr;
-        }
-
+        /* Sidebar + main layout */
+        .cv-body { display: grid; grid-template-columns: 210px 1fr; }
         .sidebar {
             background: linear-gradient(175deg, #051413 0%, #0a2826 25%, #0d3b39 55%, #0f766e 100%);
-            color: #ffffff;
-            padding: 20px 16px;
-            display: grid;
-            gap: 14px;
-            align-content: start;
+            color: #ffffff; padding: 20px 16px; display: grid; gap: 14px; align-content: start;
         }
-
-        .avatar-area {
-            text-align: center;
-        }
-
+        .avatar-area { text-align: center; }
         .avatar-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 80px; height: 80px; border-radius: 50%;
             background: linear-gradient(135deg, var(--accent) 0%, #d97706 60%, #b45309 100%);
-            margin: 0 auto 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-            border: 3px solid rgba(255, 255, 255, 0.25);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; font-weight: 700; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+            border: 3px solid rgba(255,255,255,0.25); cursor: pointer; position: relative; overflow: hidden;
         }
-
-        .avatar-circle .avatar-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            display: none;
-            z-index: 2;
-        }
-        .avatar-circle .avatar-img.visible {
-            display: block;
-        }
-        .avatar-circle .avatar-initials {
-            position: relative;
-            z-index: 1;
-        }
-        .avatar-circle.has-photo .avatar-initials {
-            opacity: 0;
-        }
-        .avatar-camera-overlay {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            font-size: 20px;
-            z-index: 3;
-        }
-        .avatar-circle:hover .avatar-camera-overlay {
-            opacity: 1;
-        }
+        .avatar-circle .avatar-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: none; z-index: 2; }
+        .avatar-circle .avatar-img.visible { display: block; }
+        .avatar-circle .avatar-initials { position: relative; z-index: 1; }
+        .avatar-circle.has-photo .avatar-initials { opacity: 0; }
+        .avatar-camera-overlay { position: absolute; inset: 0; border-radius: 50%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; font-size: 20px; z-index: 3; }
+        .avatar-circle:hover .avatar-camera-overlay { opacity: 1; }
         .avatar-remove-btn {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #ef4444;
-            color: #fff;
-            border: 2px solid #fff;
-            font-size: 10px;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
+            position: absolute; top: -3px; right: -3px; width: 20px; height: 20px; border-radius: 50%;
+            background: #ef4444; color: #fff; border: 2px solid #fff; font-size: 10px;
+            cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 5;
         }
-        .avatar-remove-btn.visible {
-            display: flex;
-        }
-
-        .sidebar-name {
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .sidebar-title {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            cursor: pointer;
-        }
-
-        .sidebar-section h3 {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            margin-bottom: 6px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .quick-info-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 10.5px;
-        }
-        .quick-info-table td {
-            padding: 2px 0;
-            vertical-align: top;
-        }
-        .quick-info-table td.qi-icon {
-            width: 18px;
-            font-size: 11px;
-            color: var(--accent);
-        }
-        .quick-info-table td.qi-value {
-            color: #dbe3ea;
-            cursor: pointer;
-        }
-
-        .lang-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
+        .avatar-remove-btn.visible { display: flex; }
+        .sidebar-name { font-size: 15px; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+        .sidebar-title { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); cursor: pointer; }
+        .sidebar-section h3 { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 6px; font-weight: 600; cursor: pointer; }
+        .quick-info-table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+        .quick-info-table td { padding: 2px 0; vertical-align: top; }
+        .quick-info-table td.qi-icon { width: 18px; font-size: 11px; color: var(--accent); }
+        .quick-info-table td.qi-value { color: #dbe3ea; cursor: pointer; }
+        .lang-tags { display: flex; flex-wrap: wrap; gap: 5px; }
         .lang-tag {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 3px 9px;
-            border-radius: 12px;
-            font-size: 9.5px;
-            cursor: pointer;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            padding: 3px 9px; border-radius: 12px; font-size: 9.5px; cursor: pointer;
         }
 
-        /* ============ MAIN CONTENT ============ */
-        .main-content {
-            padding: 18px 20px;
-            background: linear-gradient(180deg, #fcfdfe 0%, #f8fafc 100%);
-        }
-
+        /* Main content */
+        .main-content { padding: 18px 20px; background: linear-gradient(180deg, #fcfdfe 0%, #f8fafc 100%); }
         .main-content h2 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-            padding-left: 14px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary);
+            margin-bottom: 8px; font-weight: 700; padding-left: 14px; position: relative;
+            cursor: pointer; display: flex; align-items: center; gap: 5px;
         }
         .main-content h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 16px;
-            background: var(--accent);
-            border-radius: 2px;
+            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 3px; height: 16px; background: var(--accent); border-radius: 2px;
         }
         .section-badge {
-            font-size: 8px;
-            background: var(--accent-light);
-            color: var(--accent-dark);
-            padding: 2px 7px;
-            border-radius: 8px;
-            letter-spacing: 0.5px;
-            font-weight: 600;
+            font-size: 8px; background: var(--accent-light); color: var(--accent-dark);
+            padding: 2px 7px; border-radius: 8px; letter-spacing: 0.5px; font-weight: 600;
         }
-
-        .section {
-            margin-bottom: 14px;
-        }
-
+        .section { margin-bottom: 14px; }
         .objective-text {
-            background: var(--surface);
-            border-left: 3px solid var(--accent);
-            padding: 10px 13px;
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            font-size: 11.5px;
-            color: var(--text-light);
-            line-height: 1.6;
-            cursor: pointer;
+            background: var(--surface); border-left: 3px solid var(--accent);
+            padding: 10px 13px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 11.5px; color: var(--text-light); line-height: 1.6; cursor: pointer;
         }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 11px; border-radius: var(--radius-sm); overflow: hidden; }
         .data-table th {
-            background: var(--accent-light);
-            color: var(--primary-dark);
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 6px 8px;
-            font-weight: 700;
-            border-bottom: 2px solid rgba(245, 158, 11, 0.2);
-            cursor: pointer;
+            background: var(--accent-light); color: var(--primary-dark); font-size: 9px;
+            text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 8px; font-weight: 700;
+            border-bottom: 2px solid rgba(245,158,11,0.2); cursor: pointer;
         }
-        .data-table td {
-            padding: 6px 8px;
-            border-bottom: 1px solid var(--border-light);
-            cursor: pointer;
-        }
-        .data-table td.year-cell {
-            text-align: right;
-            font-weight: 600;
-            color: var(--primary);
-            font-family: var(--font-mono);
-            white-space: nowrap;
-        }
-        .data-table td.marks-cell {
-            text-align: center;
-            font-weight: 600;
-            color: var(--text-light);
-            font-family: var(--font-mono);
-            white-space: nowrap;
-        }
+        .data-table td { padding: 6px 8px; border-bottom: 1px solid var(--border-light); cursor: pointer; }
+        .data-table td.year-cell { text-align: right; font-weight: 600; color: var(--primary); font-family: var(--font-mono); white-space: nowrap; }
+        .data-table td.marks-cell { text-align: center; font-weight: 600; color: var(--text-light); font-family: var(--font-mono); white-space: nowrap; }
+        .pd-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+        .pd-table td { padding: 6px 8px; cursor: pointer; }
+        .pd-table td.pd-label { font-weight: 600; color: var(--primary); font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap; background: var(--surface-alt); width: 1%; }
+        .pd-table td.pd-value { color: var(--text-light); }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 6px; }
+        .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 7px 11px; display: flex; align-items: center; gap: 7px; font-size: 10.5px; cursor: pointer; }
+        .skill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+        .skill-tag { background: #fff; border: 1px solid var(--border); padding: 4px 10px; border-radius: 14px; font-size: 9.5px; cursor: pointer; }
+        .skill-tag.highlight { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: 600; }
 
-        .pd-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-        }
-        .pd-table td {
-            padding: 6px 8px;
-            cursor: pointer;
-        }
-        .pd-table td.pd-label {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            white-space: nowrap;
-            background: var(--surface-alt);
-            width: 1%;
-        }
-        .pd-table td.pd-value {
-            color: var(--text-light);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 6px;
-        }
-        .skill-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 7px 11px;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-size: 10.5px;
-            cursor: pointer;
-        }
-        .skill-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 6px;
-        }
-        .skill-tag {
-            background: #fff;
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 14px;
-            font-size: 9.5px;
-            cursor: pointer;
-        }
-        .skill-tag.highlight {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* ============ EXPERIENCE ============ */
-        .experience-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            position: relative;
-        }
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .exp-company {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 12px;
-            cursor: pointer;
-        }
-        .exp-duration {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--accent-dark);
-            background: var(--accent-light);
-            padding: 2px 8px;
-            border-radius: 10px;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-        .exp-role {
-            font-size: 11px;
-            color: var(--text-light);
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .exp-desc {
-            font-size: 10.5px;
-            color: var(--text-light);
-            line-height: 1.5;
-            cursor: pointer;
-        }
+        /* Experience */
+        .experience-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 8px; position: relative; }
+        .exp-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .exp-company { font-weight: 700; color: var(--primary); font-size: 12px; cursor: pointer; }
+        .exp-duration { font-size: 10px; font-weight: 600; color: var(--accent-dark); background: var(--accent-light); padding: 2px 8px; border-radius: 10px; white-space: nowrap; cursor: pointer; }
+        .exp-role { font-size: 11px; color: var(--text-light); font-weight: 600; cursor: pointer; }
+        .exp-desc { font-size: 10.5px; color: var(--text-light); line-height: 1.5; cursor: pointer; }
         .remove-btn {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #ef4444;
-            color: #fff;
-            border: none;
-            font-size: 14px;
-            line-height: 1;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.7;
-            z-index: 10;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border-radius: 50%;
+            background: #ef4444; color: #fff; border: none; font-size: 14px; line-height: 1;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            opacity: 0.7; z-index: 10; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
-
         .add-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 12px;
-            border-radius: 16px;
-            background: var(--primary-light);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            margin-top: 4px;
+            display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px;
+            border-radius: 16px; background: var(--primary-light); color: #fff;
+            font-size: 10px; font-weight: 600; border: none; cursor: pointer; margin-top: 4px;
             transition: all var(--transition);
         }
-        .add-btn:active {
-            transform: scale(0.95);
-        }
+        .add-btn:active { transform: scale(0.95); }
+        .divider { height: 1px; background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%); margin: 12px 0; opacity: 0.7; }
 
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
-            margin: 12px 0;
-            opacity: 0.7;
-        }
-
-        /* ============ FOOTER ============ */
-        .cv-footer {
-            padding: 8px 20px;
-            background: var(--surface-alt);
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 8.5px;
-            color: var(--text-muted);
-        }
-
+        /* Footer */
+        .cv-footer { padding: 8px 20px; background: var(--surface-alt); border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); }
         .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(120px);
-            background: var(--primary-dark);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 11px;
-            z-index: 999;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.4s;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            max-width: 90vw;
-            text-align: center;
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(120px);
+            background: var(--primary-dark); color: #fff; padding: 10px 20px; border-radius: 20px;
+            font-size: 11px; z-index: 999; opacity: 0; pointer-events: none; transition: all 0.4s;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3); max-width: 90vw; text-align: center;
         }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .toast.success {
-            background: #15803d;
-        }
-        .toast.error {
-            background: #b91c1c;
-        }
-        .toast.info {
-            background: var(--primary-dark);
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .toast.success { background: #15803d; }
+        .toast.error { background: #b91c1c; }
+        .toast.info { background: var(--primary-dark); }
+        #photo-upload-input { display: none; }
+
+        /* PDF mode: hide all instructional/hint elements */
+        .pdf-mode [contenteditable]:empty::before { content: none !important; }
+        .pdf-mode .avatar-label,
+        .pdf-mode .edit-hint,
+        .pdf-mode .avatar-camera-overlay,
+        .pdf-mode .avatar-remove-btn,
+        .pdf-mode .no-print,
+        .pdf-mode .cv-footer .no-print {
+            display: none !important;
         }
 
-        #photo-upload-input {
-            display: none;
-        }
-
-        /* ============ RESPONSIVE ============ */
+        /* Responsive */
         @media (max-width: 700px) {
-            .cv-header {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 10px;
-                padding: 14px 16px;
-            }
-            .header-left {
-                justify-content: center;
-            }
-            .header-contact-table {
-                justify-self: center;
-            }
-            .header-actions-area {
-                flex-direction: row;
-                width: 100%;
-                justify-content: center;
-                gap: 6px;
-            }
-            .header-actions-area .btn {
-                flex: 1;
-                font-size: 10px;
-                padding: 6px 10px;
-                min-height: 34px;
-            }
-            .cv-body {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-                gap: 10px;
-                padding: 14px;
-            }
-            .main-content {
-                padding: 14px 12px;
-            }
-            .data-table th,
-            .data-table td {
-                padding: 4px 5px;
-                font-size: 10px;
-            }
-            .pd-table td {
-                padding: 4px 5px;
-                font-size: 10px;
-            }
-            .section-badge {
-                font-size: 7px;
-            }
+            .cv-header { grid-template-columns: 1fr; text-align: center; gap: 10px; padding: 14px 16px; }
+            .header-left { justify-content: center; }
+            .header-contact-table { justify-self: center; }
+            .header-actions-area { flex-direction: row; width: 100%; justify-content: center; gap: 6px; }
+            .header-actions-area .btn { flex: 1; font-size: 10px; padding: 6px 10px; min-height: 34px; }
+            .cv-body { grid-template-columns: 1fr; }
+            .sidebar { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; padding: 14px; }
+            .main-content { padding: 14px 12px; }
+            .data-table th, .data-table td { padding: 4px 5px; font-size: 10px; }
+            .pd-table td { padding: 4px 5px; font-size: 10px; }
+            .section-badge { font-size: 7px; }
         }
-
         @media (max-width: 400px) {
-            .cv-header {
-                padding: 10px 8px;
-            }
-            .header-name-info h1 {
-                font-size: 17px;
-            }
-            .header-icon-block {
-                width: 34px;
-                height: 34px;
-                font-size: 16px;
-            }
-            .avatar-circle {
-                width: 64px;
-                height: 64px;
-                font-size: 26px;
-            }
-            .main-content h2 {
-                font-size: 10px;
-            }
-            .experience-item {
-                padding: 8px 8px;
-            }
+            .cv-header { padding: 10px 8px; }
+            .header-name-info h1 { font-size: 17px; }
+            .header-icon-block { width: 34px; height: 34px; font-size: 16px; }
+            .avatar-circle { width: 64px; height: 64px; font-size: 26px; }
+            .main-content h2 { font-size: 10px; }
+            .experience-item { padding: 8px 8px; }
         }
     </style>
 </head>
@@ -840,7 +331,7 @@
                             <span class="avatar-camera-overlay">📷</span>
                             <button class="avatar-remove-btn" id="avatar-remove-btn">×</button>
                         </div>
-                        <p class="avatar-label">Tap avatar to upload</p>
+                        <p class="avatar-label no-print">Tap avatar to upload</p>
                         <div class="sidebar-name" contenteditable="true" data-field="name">Ankush Kumar</div>
                         <div class="sidebar-title" contenteditable="true" data-field="title">Mechanical Engineer</div>
                         <input type="file" id="photo-upload-input" accept="image/*">
@@ -849,9 +340,7 @@
                     <!-- Contact Details (dynamic) -->
                     <div class="sidebar-section">
                         <h3 contenteditable="true">📋 Contact</h3>
-                        <div id="contact-container" class="quick-info-table">
-                            <!-- Populated by JS -->
-                        </div>
+                        <div id="contact-container" class="quick-info-table"></div>
                         <button class="add-btn no-print" id="add-contact-btn">+ Add Contact</button>
                     </div>
 
@@ -868,9 +357,7 @@
                     <!-- Personal Info (dynamic) -->
                     <div class="sidebar-section">
                         <h3 contenteditable="true">👤 Personal Info</h3>
-                        <div id="personal-info-container" class="quick-info-table">
-                            <!-- Populated by JS -->
-                        </div>
+                        <div id="personal-info-container" class="quick-info-table"></div>
                         <button class="add-btn no-print" id="add-personal-btn">+ Add Info</button>
                     </div>
                 </aside>
@@ -886,9 +373,7 @@
 
                     <div class="section">
                         <h2 contenteditable="true">💼 Experience <span class="section-badge">Work</span></h2>
-                        <div id="experience-container">
-                            <!-- Populated by JS -->
-                        </div>
+                        <div id="experience-container"></div>
                         <button class="add-btn no-print" id="add-experience-btn">+ Add Experience</button>
                     </div>
 
@@ -906,9 +391,7 @@
                                     <th class="no-print"></th>
                                 </tr>
                             </thead>
-                            <tbody id="education-body">
-                                <!-- Populated by JS -->
-                            </tbody>
+                            <tbody id="education-body"></tbody>
                         </table>
                         <button class="add-btn no-print" id="add-education-btn">+ Add Education</button>
                     </div>
@@ -917,7 +400,7 @@
 
                     <div class="section">
                         <h2 contenteditable="true">💻 Skills <span class="section-badge">Expertise</span></h2>
-                        <div class="skills-grid" id="skills-grid">
+                        <div class="skills-grid">
                             <div class="skill-card" contenteditable="true"><span class="skill-dot"></span>MS Word & Excel</div>
                             <div class="skill-card" contenteditable="true"><span class="skill-dot"></span>Internet Surfing & Data Mgmt</div>
                         </div>
@@ -934,9 +417,7 @@
 
                     <div class="section">
                         <h2 contenteditable="true">📝 Personal Details <span class="section-badge">Profile</span></h2>
-                        <table class="pd-table" id="pd-table">
-                            <!-- Populated by JS -->
-                        </table>
+                        <table class="pd-table" id="pd-table"></table>
                         <button class="add-btn no-print" id="add-pd-btn">+ Add Field</button>
                     </div>
                 </main>
@@ -965,13 +446,13 @@
             const footerDate = document.getElementById('footer-date');
 
             // Dynamic containers
-            const contactContainer = document.getElementById('contact-container');
-            const personalInfoContainer = document.getElementById('personal-info-container');
-            const experienceContainer = document.getElementById('experience-container');
-            const educationBody = document.getElementById('education-body');
-            const skillsContainer = document.getElementById('skills-container');
-            const langContainer = document.getElementById('lang-container');
-            const pdTable = document.getElementById('pd-table');
+            let contactContainer = document.getElementById('contact-container');
+            let personalInfoContainer = document.getElementById('personal-info-container');
+            let experienceContainer = document.getElementById('experience-container');
+            let educationBody = document.getElementById('education-body');
+            let skillsContainer = document.getElementById('skills-container');
+            let langContainer = document.getElementById('lang-container');
+            let pdTable = document.getElementById('pd-table');
 
             // Add buttons
             const addContactBtn = document.getElementById('add-contact-btn');
@@ -986,7 +467,7 @@
             let toastTimer = null;
             let hintTimer = null;
 
-            // ============ Helper: Toast ============
+            // ============ Toast ============
             function showToast(msg, type = 'info') {
                 if (toastTimer) clearTimeout(toastTimer);
                 toast.textContent = msg;
@@ -1022,7 +503,7 @@
                 }
             });
 
-            // ============ Field Sync (for duplicate data-field attributes) ============
+            // ============ Field Sync ============
             function syncField(fieldName) {
                 const sources = document.querySelectorAll(`[data-field="${fieldName}"]`);
                 if (sources.length < 2) return;
@@ -1089,7 +570,7 @@
                 if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
             });
 
-            // ============ Dynamic Item Factory Functions ============
+            // ============ Dynamic Item Factories ============
             function createContactRow(icon = '📍', value = '', placeholder = 'Value') {
                 const div = document.createElement('div');
                 div.className = 'contact-row';
@@ -1101,7 +582,6 @@
                 `;
                 return div;
             }
-
             function createPersonalInfoRow(icon = '📌', value = '', placeholder = 'Value') {
                 const div = document.createElement('div');
                 div.className = 'personal-row';
@@ -1113,7 +593,6 @@
                 `;
                 return div;
             }
-
             function createExperienceItem(company = '', duration = '', role = '', desc = '') {
                 const div = document.createElement('div');
                 div.className = 'experience-item';
@@ -1128,7 +607,6 @@
                 `;
                 return div;
             }
-
             function createEducationRow(qual = '', board = '', marks = '', year = '') {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
@@ -1140,7 +618,6 @@
                 `;
                 return tr;
             }
-
             function createSkillTag(text = '') {
                 const span = document.createElement('span');
                 span.className = 'skill-tag';
@@ -1149,7 +626,6 @@
                 span.textContent = text || 'New Skill';
                 return span;
             }
-
             function createLangTag(text = '') {
                 const span = document.createElement('span');
                 span.className = 'lang-tag';
@@ -1158,7 +634,6 @@
                 span.textContent = text || '🌐 New Language';
                 return span;
             }
-
             function createPDRow(label = '', value = '') {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
@@ -1169,9 +644,8 @@
                 return tr;
             }
 
-            // ============ Initialize dynamic sections with default data ============
+            // ============ Initialize Dynamic Sections ============
             function initializeDynamicSections() {
-                // Contact rows
                 contactContainer.innerHTML = '';
                 const contacts = [
                     ['📍', 'Village Nizampur, Post Hapur, District Hapur, UP – 245101', 'Address'],
@@ -1180,7 +654,6 @@
                 ];
                 contacts.forEach(c => contactContainer.appendChild(createContactRow(c[0], c[1], c[2])));
 
-                // Personal info rows
                 personalInfoContainer.innerHTML = '';
                 const personal = [
                     ['📅', '07 October 1997', 'Date of Birth'],
@@ -1188,7 +661,6 @@
                 ];
                 personal.forEach(p => personalInfoContainer.appendChild(createPersonalInfoRow(p[0], p[1], p[2])));
 
-                // Experience items
                 experienceContainer.innerHTML = '';
                 const experiences = [
                     ['ABC Engineering Pvt. Ltd.', '2020 – Present', 'Mechanical Engineer', 'Responsible for design, development, and maintenance of mechanical systems. Led a team of 5 engineers.'],
@@ -1196,7 +668,6 @@
                 ];
                 experiences.forEach(exp => experienceContainer.appendChild(createExperienceItem(exp[0], exp[1], exp[2], exp[3])));
 
-                // Education rows
                 educationBody.innerHTML = '';
                 const educations = [
                     ['B.Tech (Mechanical)', 'AKTU', '72%', '2019'],
@@ -1205,7 +676,6 @@
                 ];
                 educations.forEach(edu => educationBody.appendChild(createEducationRow(edu[0], edu[1], edu[2], edu[3])));
 
-                // Personal details table (main)
                 pdTable.innerHTML = '';
                 const pdRows = [
                     ['Father\'s Name', 'Mr. Manoj Kumar'],
@@ -1216,12 +686,10 @@
                 ];
                 pdRows.forEach(pd => pdTable.appendChild(createPDRow(pd[0], pd[1])));
             }
-
             initializeDynamicSections();
 
             // ============ Add / Remove Event Delegation ============
             document.addEventListener('click', (e) => {
-                // Remove buttons
                 if (e.target.classList.contains('remove-btn')) {
                     e.stopPropagation();
                     const parent = e.target.closest('.contact-row, .personal-row, .experience-item, tr');
@@ -1234,54 +702,23 @@
             });
 
             // Add button listeners
-            addContactBtn.addEventListener('click', () => {
-                contactContainer.appendChild(createContactRow('🔗', '', 'Value'));
-                showToast('Contact field added', 'success');
-                saveState();
-            });
-            addPersonalBtn.addEventListener('click', () => {
-                personalInfoContainer.appendChild(createPersonalInfoRow('📌', '', 'Value'));
-                showToast('Personal info added', 'success');
-                saveState();
-            });
-            addExperienceBtn.addEventListener('click', () => {
-                experienceContainer.appendChild(createExperienceItem('', '', '', ''));
-                showToast('Experience added', 'success');
-                saveState();
-            });
-            addEducationBtn.addEventListener('click', () => {
-                educationBody.appendChild(createEducationRow('', '', '', ''));
-                showToast('Education row added', 'success');
-                saveState();
-            });
-            addSkillBtn.addEventListener('click', () => {
-                skillsContainer.appendChild(createSkillTag());
-                showToast('Skill added', 'success');
-                saveState();
-            });
-            addLangBtn.addEventListener('click', () => {
-                langContainer.appendChild(createLangTag());
-                showToast('Language added', 'success');
-                saveState();
-            });
-            addPdBtn.addEventListener('click', () => {
-                pdTable.appendChild(createPDRow('', ''));
-                showToast('Personal detail field added', 'success');
-                saveState();
-            });
+            addContactBtn.addEventListener('click', () => { contactContainer.appendChild(createContactRow('🔗', '', 'Value')); showToast('Contact field added', 'success'); saveState(); });
+            addPersonalBtn.addEventListener('click', () => { personalInfoContainer.appendChild(createPersonalInfoRow('📌', '', 'Value')); showToast('Personal info added', 'success'); saveState(); });
+            addExperienceBtn.addEventListener('click', () => { experienceContainer.appendChild(createExperienceItem('', '', '', '')); showToast('Experience added', 'success'); saveState(); });
+            addEducationBtn.addEventListener('click', () => { educationBody.appendChild(createEducationRow('', '', '', '')); showToast('Education row added', 'success'); saveState(); });
+            addSkillBtn.addEventListener('click', () => { skillsContainer.appendChild(createSkillTag()); showToast('Skill added', 'success'); saveState(); });
+            addLangBtn.addEventListener('click', () => { langContainer.appendChild(createLangTag()); showToast('Language added', 'success'); saveState(); });
+            addPdBtn.addEventListener('click', () => { pdTable.appendChild(createPDRow('', '')); showToast('Personal detail field added', 'success'); saveState(); });
 
-            // ============ Save / Load State (localStorage) ============
+            // ============ Save / Load State ============
             function saveState() {
                 const data = {
                     html: cvContainer.innerHTML,
                     hasPhoto: hasPhoto,
                     photoSrc: hasPhoto ? avatarImg.src : null,
                 };
-                try {
-                    localStorage.setItem('resumeBuilderState_v2', JSON.stringify(data));
-                } catch (e) {}
+                try { localStorage.setItem('resumeBuilderState_v2', JSON.stringify(data)); } catch (e) {}
             }
-
             function loadState() {
                 try {
                     const saved = localStorage.getItem('resumeBuilderState_v2');
@@ -1289,7 +726,6 @@
                         const data = JSON.parse(saved);
                         if (data.html) {
                             cvContainer.innerHTML = data.html;
-                            // Re-bind dynamic elements after innerHTML replacement
                             bindDynamicElements();
                             if (data.hasPhoto && data.photoSrc) {
                                 const img = document.getElementById('avatar-img');
@@ -1306,9 +742,7 @@
                     }
                 } catch (e) {}
             }
-
             function bindDynamicElements() {
-                // Re-assign references to containers after innerHTML replacement
                 contactContainer = document.getElementById('contact-container');
                 personalInfoContainer = document.getElementById('personal-info-container');
                 experienceContainer = document.getElementById('experience-container');
@@ -1316,20 +750,16 @@
                 skillsContainer = document.getElementById('skills-container');
                 langContainer = document.getElementById('lang-container');
                 pdTable = document.getElementById('pd-table');
-
-                // Re-bind contenteditable Enter and paste handlers are already delegated
-                // Re-sync fields (if any new ones appear)
                 ['name', 'title', 'phone', 'email', 'address', 'dob', 'father'].forEach(syncField);
             }
 
-            // Auto-save on input (debounced)
             let saveTimer;
             document.addEventListener('input', () => {
                 if (saveTimer) clearTimeout(saveTimer);
                 saveTimer = setTimeout(saveState, 800);
             });
 
-            // ============ PDF Download ============
+            // ============ PDF Download (HD, no instructional text) ============
             downloadBtn.addEventListener('click', () => {
                 if (typeof html2pdf === 'undefined') {
                     showToast('PDF library loading...', 'info');
@@ -1352,35 +782,39 @@
                 downloadBtn.classList.add('loading');
                 downloadBtn.querySelector('.btn-icon-text').textContent = 'Generating...';
 
-                // Hide no-print elements
-                const noPrintEls = cvContainer.querySelectorAll('.no-print');
-                const originalDisplays = [];
-                noPrintEls.forEach(el => { originalDisplays.push(el.style.display); el.style.display = 'none'; });
+                // Hide all instructional text and UI elements
+                cvContainer.classList.add('pdf-mode');
+                const globalHint = document.getElementById('global-edit-hint');
+                const globalHintDisplay = globalHint ? globalHint.style.display : '';
+                if (globalHint) globalHint.style.display = 'none';
+
+                const removeBtn = document.getElementById('avatar-remove-btn');
+                const removeBtnDisplay = removeBtn ? removeBtn.style.display : '';
+                if (removeBtn) removeBtn.style.display = 'none';
+
+                const cameraOverlay = document.querySelector('.avatar-camera-overlay');
+                const cameraOverlayDisplay = cameraOverlay ? cameraOverlay.style.display : '';
+                if (cameraOverlay) cameraOverlay.style.display = 'none';
 
                 function restore() {
-                    noPrintEls.forEach((el, i) => { el.style.display = originalDisplays[i]; });
+                    cvContainer.classList.remove('pdf-mode');
+                    if (globalHint) globalHint.style.display = globalHintDisplay;
+                    if (removeBtn) removeBtn.style.display = removeBtnDisplay;
+                    if (cameraOverlay) cameraOverlay.style.display = cameraOverlayDisplay;
                     downloadBtn.classList.remove('loading');
                     downloadBtn.querySelector('.btn-icon-text').textContent = '📥 Download PDF';
                 }
 
+                // HD quality: fixed 3x scale, 100% JPEG quality
                 const marginIn = 0.2;
-                const a4WidthIn = 8.27;
-                const a4HeightIn = 11.69;
-                const usableWidthIn = a4WidthIn - marginIn * 2;
-                const usableHeightIn = a4HeightIn - marginIn * 2;
-                const containerWidthPx = cvContainer.offsetWidth;
-                const containerHeightPx = cvContainer.offsetHeight;
-                const scaleByWidth = (usableWidthIn * 96) / containerWidthPx;
-                const scaleByHeight = (usableHeightIn * 96) / containerHeightPx;
-                const optimalScale = Math.min(scaleByWidth, scaleByHeight, 2.0);
-
                 const opt = {
                     margin: marginIn,
-                    filename: 'Resume.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
+                    filename: 'Resume_HD.pdf',
+                    image: { type: 'jpeg', quality: 1.0 },
                     html2canvas: {
-                        scale: optimalScale,
+                        scale: 3,
                         useCORS: true,
+                        letterRendering: true,
                         logging: false,
                         backgroundColor: '#ffffff',
                     },
@@ -1390,7 +824,7 @@
 
                 html2pdf().set(opt).from(cvContainer).save().then(() => {
                     restore();
-                    showToast('✅ PDF downloaded — single page A4', 'success');
+                    showToast('✅ HD PDF downloaded — single page A4', 'success');
                 }).catch(err => {
                     restore();
                     console.error(err);
@@ -1398,15 +832,13 @@
                 });
             }
 
-            // Load state on page load
+            // ============ Initialize ============
             loadState();
-
-            // Set footer date
             if (footerDate) {
                 footerDate.textContent = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
             }
 
-            console.log('📱 Full Field Resume Builder ready — add/delete any field, edit content, download A4 PDF.');
+            console.log('📱 Full Field Resume Builder ready — add/delete any field, edit content, download HD A4 PDF without instructions.');
         })();
     </script>
 </body>

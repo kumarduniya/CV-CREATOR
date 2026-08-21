@@ -245,7 +245,8 @@
         .divider { height: 1px; background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%); margin: 12px 0; opacity: 0.7; }
 
         /* Footer */
-        .cv-footer { padding: 8px 20px; background: var(--surface-alt); border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); }
+        .cv-footer { padding: 3px 20px; background: var(--surface-alt); border-top: 1px solid var(--border-light); display: flex; justify-content: center; align-items: center; font-size: 6px; color: var(--text-muted); line-height: 1; }
+        .footer-site { letter-spacing: 0.2px; }
         .toast {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(120px);
             background: var(--primary-dark); color: #fff; padding: 10px 20px; border-radius: 20px;
@@ -424,9 +425,7 @@
             </div>
 
             <div class="cv-footer">
-                <span>📄 Single Page A4</span>
-                <span>✏️ Tap to edit anywhere</span>
-                <span>Updated: <span id="footer-date"></span></span>
+                <span class="footer-site">ankushcv.pages.dev</span>
             </div>
         </div>
     </div>
@@ -434,11 +433,11 @@
     <script>
         (function() {
             // ============ DOM Elements ============
-            const avatarCircle = document.getElementById('avatar-circle');
-            const avatarImg = document.getElementById('avatar-img');
-            const avatarRemoveBtn = document.getElementById('avatar-remove-btn');
-            const photoUploadInput = document.getElementById('photo-upload-input');
-            const uploadTriggerBtn = document.getElementById('upload-trigger-btn');
+            let avatarCircle = document.getElementById('avatar-circle');
+            let avatarImg = document.getElementById('avatar-img');
+            let avatarRemoveBtn = document.getElementById('avatar-remove-btn');
+            let photoUploadInput = document.getElementById('photo-upload-input');
+            let uploadTriggerBtn = document.getElementById('upload-trigger-btn');
             const downloadBtn = document.getElementById('download-btn');
             const toast = document.getElementById('toast');
             const cvContainer = document.getElementById('cv-container');
@@ -547,28 +546,49 @@
                 reader.onload = e => applyPhoto(e.target.result);
                 reader.readAsDataURL(file);
             }
-            avatarCircle.addEventListener('click', (e) => {
-                if (e.target === avatarRemoveBtn || avatarRemoveBtn.contains(e.target)) return;
-                triggerFileInput();
-            });
-            uploadTriggerBtn.addEventListener('click', triggerFileInput);
-            photoUploadInput.addEventListener('change', (e) => { handleFile(e.target.files[0]); e.target.value = ''; });
-            avatarRemoveBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                hasPhoto = false;
-                avatarImg.src = '';
-                avatarImg.classList.remove('visible');
-                avatarCircle.classList.remove('has-photo');
-                avatarRemoveBtn.classList.remove('visible');
-                showToast('Photo removed', 'info');
-            });
-            avatarCircle.addEventListener('dragover', (e) => { e.preventDefault(); avatarCircle.style.borderColor = '#f59e0b'; });
-            avatarCircle.addEventListener('dragleave', () => { avatarCircle.style.borderColor = ''; });
-            avatarCircle.addEventListener('drop', (e) => {
-                e.preventDefault();
-                avatarCircle.style.borderColor = '';
-                if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-            });
+            function bindPhotoElements() {
+                avatarCircle = document.getElementById('avatar-circle');
+                avatarImg = document.getElementById('avatar-img');
+                avatarRemoveBtn = document.getElementById('avatar-remove-btn');
+                photoUploadInput = document.getElementById('photo-upload-input');
+                uploadTriggerBtn = document.getElementById('upload-trigger-btn');
+
+                if (!avatarCircle || !avatarImg || !avatarRemoveBtn || !photoUploadInput || !uploadTriggerBtn) return;
+
+                avatarCircle.addEventListener('click', (e) => {
+                    if (e.target === avatarRemoveBtn || avatarRemoveBtn.contains(e.target)) return;
+                    triggerFileInput();
+                });
+                uploadTriggerBtn.addEventListener('click', triggerFileInput);
+                photoUploadInput.addEventListener('change', (e) => {
+                    handleFile(e.target.files[0]);
+                    e.target.value = '';
+                });
+                avatarRemoveBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hasPhoto = false;
+                    avatarImg.src = '';
+                    avatarImg.classList.remove('visible');
+                    avatarCircle.classList.remove('has-photo');
+                    avatarRemoveBtn.classList.remove('visible');
+                    showToast('Photo removed', 'info');
+                    saveState();
+                });
+                avatarCircle.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    avatarCircle.style.borderColor = '#f59e0b';
+                });
+                avatarCircle.addEventListener('dragleave', () => {
+                    avatarCircle.style.borderColor = '';
+                });
+                avatarCircle.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    avatarCircle.style.borderColor = '';
+                    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+                });
+            }
+
+            bindPhotoElements();
 
             // ============ Dynamic Item Factories ============
             function createContactRow(icon = '📍', value = '', placeholder = 'Value') {
@@ -750,6 +770,7 @@
                 skillsContainer = document.getElementById('skills-container');
                 langContainer = document.getElementById('lang-container');
                 pdTable = document.getElementById('pd-table');
+                bindPhotoElements();
                 ['name', 'title', 'phone', 'email', 'address', 'dob', 'father'].forEach(syncField);
             }
 

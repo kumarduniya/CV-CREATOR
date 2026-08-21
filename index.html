@@ -805,20 +805,32 @@
                     downloadBtn.querySelector('.btn-icon-text').textContent = '📥 Download PDF';
                 }
 
-                // HD quality: fixed 3x scale, 100% JPEG quality
+                // Ultra-HD PDF export:
+                // - PNG avoids JPEG compression blur around text and thin lines.
+                // - 4x canvas scale gives substantially sharper text/images.
+                // - High DPI is intentionally used for resume-quality printing.
                 const marginIn = 0.2;
                 const opt = {
                     margin: marginIn,
                     filename: 'Resume_HD.pdf',
-                    image: { type: 'jpeg', quality: 1.0 },
+                    image: { type: 'png' },
                     html2canvas: {
-                        scale: 3,
+                        scale: 4,
                         useCORS: true,
+                        allowTaint: false,
                         letterRendering: true,
                         logging: false,
                         backgroundColor: '#ffffff',
+                        imageTimeout: 15000,
+                        windowWidth: cvContainer.scrollWidth,
+                        windowHeight: cvContainer.scrollHeight
                     },
-                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+                    jsPDF: {
+                        unit: 'in',
+                        format: 'a4',
+                        orientation: 'portrait',
+                        compress: true
+                    },
                     pagebreak: { mode: 'avoid-all' },
                 };
 
